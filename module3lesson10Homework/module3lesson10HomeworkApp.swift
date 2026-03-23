@@ -18,7 +18,7 @@ struct module3lesson10HomeworkApp: App {
                     .environment(\.font, .custom(Poppins.regular.rawValue, size: 16))
                     .environmentObject(viewModel)
             } else {
-                ContentView()
+                MainView()
                     .environment(\.font, .custom(Poppins.regular.rawValue, size: 16))
             }
         }

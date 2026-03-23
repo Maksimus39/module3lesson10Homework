@@ -1,12 +1,13 @@
 import SwiftUI
 
-
 struct MainButton: View {
     var image: String
+    var text: String
     var action: () -> Void
     
-    init(image: String, action: @escaping () -> Void) {
+    init(image: String, text: String, action: @escaping () -> Void) {
         self.image = image
+        self.text = text
         self.action = action
     }
     
@@ -15,7 +16,7 @@ struct MainButton: View {
             action()
         } label: {
             HStack(spacing: 8){
-                Text("Check your packages")
+                Text(text)
                     .font(type: .medium, size: 16)
                 Image(systemName: image)
                     .resizable()
@@ -31,7 +32,6 @@ struct MainButton: View {
             )
             .clipShape(Capsule())
         }
-        .padding(.horizontal, 20)
         .buttonStyle(PlainButtonStyle())
     }
 }

@@ -41,16 +41,15 @@ struct OnboardingView: View {
                             Text("2 active packages")
                                 .font(type: .medium, size: 12)
                             
-                                Image(systemName: "circle")
-                                    .resizable()
-                                    .scaledToFit()
+                            HStack(spacing: -5) {
+                                Circle()
                                     .frame(width: 10, height: 10)
-                                    .background(.green)
-                                Image(systemName: "circle")
-                                    .resizable()
-                                    .scaledToFit()
+                                    .foregroundStyle(.green)
+                                Circle()
                                     .frame(width: 10, height: 10)
-                                    .background(.red)
+                                    .foregroundStyle(.red)
+                                    .zIndex(1)
+                            }
                         }
                         .foregroundStyle(.onboardingColorTextDark)
                         .padding(.vertical, 4)
@@ -63,7 +62,7 @@ struct OnboardingView: View {
             
             Spacer()
             
-            MainButton(image: "arrowshape.right.circle"){
+            MainButton(image: "arrowshape.right.circle", text: "Check your packages"){
                 appViewModel.isShowOnboard = !true
             }
             .padding(.bottom, 34)
